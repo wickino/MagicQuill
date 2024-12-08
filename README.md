@@ -5,10 +5,39 @@
 <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg"></a>
 
 
+##  Fast Setup for Linux
+
+0. download and install miniconda
+   ```
+   wget -O Miniconda3.sh "https://repo.anaconda.com/miniconda/Miniconda3-py310_24.9.2-0-Linux-x86_64.sh" && \
+   bash Miniconda3.sh -b -p $HOME/miniconda3 && \
+   $HOME/miniconda3/bin/conda init && \
+   source ~/.bashrc && \
+   conda --version
+   ```
+1. git clone repo
+    ```
+    git clone --recursive https://github.com/wikino/MagicQuill.git
+    cd MagicQuill
+    ```
+2. download and unzip checkpoints or move the "models" folder into the root directory "MagicQuill"
+    ```
+    wget -O models.zip "https://hkustconnect-my.sharepoint.com/:u:/g/personal/zliucz_connect_ust_hk/EWlGF0WfawJIrJ1Hn85_-3gB0MtwImAnYeWXuleVQcukMg?e=Gcjugg&download=1"
+    unzip models.zip
+    ```
+3. Make the linux_setup.sh executable and run it
+    ```
+    chmod +x linux_setup.sh
+    ./linux_setup.sh
+    ```
+---
+
 
 https://github.com/user-attachments/assets/8ee9663a-fef2-484a-a0b7-8427ab590424
 
 There is an HD video on [Youtube](https://www.youtube.com/watch?v=5DiKfONMnE4).
+
+
 
 [Zichen Liu](https://zliucz.github.io)<sup>\*,1,2</sup>, [Yue Yu](https://bruceyyu.github.io/)<sup>\*,1,2</sup>, [Hao Ouyang](https://ken-ouyang.github.io/)<sup>2</sup>, [Qiuyu Wang](https://github.com/qiuyu96)<sup>2</sup>, [Ka Leong Cheng](https://felixcheng97.github.io/)<sup>1,2</sup>, [Wen Wang](https://github.com/encounter1997)<sup>3,2</sup>, [Zhiheng Liu](https://johanan528.github.io/)<sup>4</sup>, [Qifeng Chen](https://cqf.io/)<sup>†,1</sup>, [Yujun Shen](https://shenyujun.github.io/)<sup>†,2</sup><br>
 <sup>1</sup>HKUST <sup>2</sup>Ant Group <sup>3</sup>ZJU <sup>4</sup>HKU <sup>\*</sup>equal contribution <sup>†</sup>corresponding author
@@ -119,11 +148,19 @@ Alternatively, follow the step-by-step installation guide.
     ```
     If you are mainland user, you may try `export HF_ENDPOINT=https://hf-mirror.com` to use huggingface mirror to facilitate the download of some necessary checkpoints to run our system.
 
-0. Cleaning virtual environment
+Cleaning virtual environment
    ```
    conda env remove --name MagicQuill
    ```
-   Move models out of the git directory and remove the git directory "MagicQuill" as well for fresh start
+Removing Miniconda3, if removed, the last command will give you `No such file or directory`
+   ```
+   rm -rf ~/miniconda3
+   sed -i '/conda init/d' ~/.bashrc
+   source ~/.bashrc
+   rm -rf ~/.conda ~/.continuum
+   conda --version
+   ```
+   Move models out of the git directory and remove the git directory "MagicQuill" as well for fresh start. Move the models folder out of the directory before removing it
 ## Tutorial
 
 Please read before you try!
