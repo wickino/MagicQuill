@@ -23,6 +23,7 @@ conda activate MagicQuill
 # Install PyTorch with CUDA 11.8
 echo "Installing PyTorch 2.1.2 with CUDA 11.8..."
 pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu118
+conda install -c nvidia cudatoolkit=11.8
 
 # Verify PyTorch installation and CUDA availability
 python -c "import torch; print('PyTorch version:', torch.version); print('CUDA available:', torch.cuda.is_available())"
@@ -51,6 +52,7 @@ pip install -r requirements.txt
 # Run MagicQuill
 echo "Starting MagicQuill..."
 export CUDA_VISIBLE_DEVICES=0
+export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 python gradio_run.py || {
     echo "Error: Failed to run MagicQuill."
     exit 1
