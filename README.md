@@ -119,6 +119,11 @@ Alternatively, follow the step-by-step installation guide.
     ```
     If you are mainland user, you may try `export HF_ENDPOINT=https://hf-mirror.com` to use huggingface mirror to facilitate the download of some necessary checkpoints to run our system.
 
+0. Cleaning virtual environment
+   ```
+   conda env remove --name MagicQuill
+   ```
+   Move models out of the git directory and remove the git directory "MagicQuill" as well for fresh start
 ## Tutorial
 
 Please read before you try!
