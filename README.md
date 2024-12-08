@@ -17,7 +17,7 @@
    ```
 1. git clone repo
     ```
-    git clone --recursive https://github.com/wikino/MagicQuill.git
+    git clone --recursive https://github.com/wickino/MagicQuill.git
     cd MagicQuill
     ```
 2. download and unzip checkpoints or move the "models" folder into the root directory "MagicQuill"
